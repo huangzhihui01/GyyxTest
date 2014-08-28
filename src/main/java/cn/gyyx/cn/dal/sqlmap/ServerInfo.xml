@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ServerInfo">
+	<resultMap type="ServerInfo" id="Server-Result">
+		<result property="Code" column="code" javaType="Integer" />		
+		<result property="GameId" column="game_id" javaType="Integer" />		
+		<result property="ServerName" column="name" javaType="String" />		
+	</resultMap>	
+	<select id="queryById" parameterType="Integer" resultMap="Server-Result">
+		select * from huangzhihui_game_service_tb where code=#{id}  
+    </select>
+	<select id="queryListByGameId" parameterType="Integer" resultMap="Server-Result">
+		select * from huangzhihui_game_service_tb
+		where game_id=#{game_id}
+    </select>    
+</mapper> 
